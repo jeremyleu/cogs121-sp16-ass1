@@ -1,6 +1,11 @@
 (function($) {
     "use strict";
     /* TODO: Start your Javascript code here */
+    var socket = io();
+    $('form').submit(function() {
+      socket.emit('chat message', $('#user_input').val());
+      $('#user_input').val('');
+    })
 
     // You may use this for updating new message
     function messageTemplate(template) {
